@@ -25,6 +25,16 @@ BlueSlide structures persuasive content in four stages:
 
 Then answer the bridge question: **How do we get from here to there?**
 
+## Output workflow
+
+BlueSlide does not jump from raw requirements directly into slide design:
+
+1. **Presentation brief** — audience, goal, context, scope, evidence, format, and constraints.
+2. **Narrative spine** — the transformation the audience should experience.
+3. **Slide map** — one assertion, evidence set, and visual intent per slide.
+4. **Build** — PowerPoint, Google Slides, or another requested deliverable.
+5. **Visual QA** — render, inspect, simplify, and correct every slide before delivery.
+
 ## Core design rules
 
 - One primary message per slide.
@@ -41,13 +51,62 @@ The canonical palette is stored in [`assets/palette.json`](assets/palette.json).
 
 ## Install
 
-Clone the repository into the Codex skills directory:
+BlueSlide ships a single root `SKILL.md` in the portable Agent Skills format,
+so it installs identically across Claude, Antigravity, Codex, and any other
+agent that adopts the standard.
+
+### Skills CLI — recommended
+
+The cross-agent [`skills`](https://github.com/vercel-labs/skills) CLI detects
+your installed agents and installs BlueSlide for each of them:
 
 ```bash
-git clone https://github.com/vpoonyak/blue-slide.git ~/.codex/skills/blue-slide
+# Install for every detected agent
+npx skills add vpoonyak/blue-slide
+
+# Or target specific agents
+npx skills add vpoonyak/blue-slide -a claude-code
+npx skills add vpoonyak/blue-slide -a codex
+
+# Inspect what the repository exposes first
+npx skills add vpoonyak/blue-slide --list
 ```
 
-Restart or refresh Codex after installation so the skill can be discovered.
+The CLI discovers exactly one root skill named `blue-slide`.
+
+### Manual installation
+
+Clone the repository into the agent's skills directory. Use the global path to
+make BlueSlide available everywhere, or a project path to scope it to one repo.
+
+**Claude (Claude Code / Claude apps)**
+
+```bash
+# Global
+git clone https://github.com/vpoonyak/blue-slide.git ~/.claude/skills/blue-slide
+# Project
+git clone https://github.com/vpoonyak/blue-slide.git .claude/skills/blue-slide
+```
+
+**Google Antigravity**
+
+```bash
+# Global
+git clone https://github.com/vpoonyak/blue-slide.git ~/.gemini/config/skills/blue-slide
+# Project
+git clone https://github.com/vpoonyak/blue-slide.git .agents/skills/blue-slide
+```
+
+**Codex**
+
+```bash
+# Global
+git clone https://github.com/vpoonyak/blue-slide.git ~/.codex/skills/blue-slide
+# Project
+git clone https://github.com/vpoonyak/blue-slide.git .agents/skills/blue-slide
+```
+
+Restart or refresh the agent after installation so it can discover the skill.
 
 ## Use
 
@@ -71,6 +130,10 @@ Use $blue-slide to redesign these charts and remove visual noise.
 
 ```text
 blue-slide/
+├── AGENTS.md
+├── CHANGELOG.md
+├── LICENSE
+├── README.md
 ├── SKILL.md
 ├── agents/openai.yaml
 ├── assets/palette.json
@@ -91,3 +154,7 @@ BlueSlide is an original skill informed by three presentation influences:
 - **Chang-Yang Lin** — visual clarity, flat icons, removal of decoration, and content distillation before design.
 
 See [`references/method.md`](references/method.md) for the source links and working blend. BlueSlide is independent and is not affiliated with or endorsed by these creators or organizations.
+
+## License
+
+BlueSlide is released under the [MIT License](LICENSE).
