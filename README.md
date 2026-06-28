@@ -7,6 +7,7 @@ BlueSlide is an original Codex skill for creating concise, blue-first presentati
 ## What BlueSlide does
 
 - Defines the audience decision before designing slides.
+- Interviews the user for unresolved audience, goal, delivery, content, and production requirements.
 - Deletes repetition and splits overcrowded slides.
 - Builds a persuasive journey from the present state to a better future.
 - Uses a restrained 70:25:5 background, main, and accent color system.
@@ -75,6 +76,7 @@ blue-slide/
 ├── assets/palette.json
 └── references/
     ├── infographics.md
+    ├── intake.md
     ├── method.md
     ├── narrative.md
     └── resource-directory.md
