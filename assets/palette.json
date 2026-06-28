@@ -1,0 +1,34 @@
+{
+  "name": "BlueSlide",
+  "rule": {
+    "background_percent": 70,
+    "main_percent": 25,
+    "accent_percent": 5
+  },
+  "colors": {
+    "white": "#FFFFFF",
+    "soft_off_white": "#F5F5F5",
+    "cool_light_gray": "#D1D5D8",
+    "alternate_cool_light_gray": "#CBCDCF",
+    "mid_gray": "#858487",
+    "dark_gray": "#4C4C4C",
+    "charcoal": "#272729",
+    "deep_navy": "#071560",
+    "primary_blue": "#2B6FBB",
+    "medium_blue": "#429FD2",
+    "light_blue": "#70B5DE",
+    "bright_blue": "#409EE0"
+  },
+  "roles": {
+    "background": ["#FFFFFF", "#F5F5F5", "#D1D5D8", "#CBCDCF"],
+    "main": ["#071560", "#2B6FBB", "#272729", "#4C4C4C"],
+    "supporting_blue": ["#70B5DE", "#429FD2", "#409EE0"],
+    "preferred_complementary_accent_hue": "yellow",
+    "preferred_complementary_accent_hex": null
+  },
+  "notes": [
+    "Use printed HEX values from the source image rather than colors sampled from the photograph.",
+    "The source image contains no canonical yellow HEX. Derive and verify a suitable yellow when needed.",
+    "Never use pure black for text."
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "BlueSlide"
+  short_description: "Create restrained blue visual presentations"
+  default_prompt: "Use $blue-slide to turn this content into a concise, blue-first presentation with one clear message per slide."
