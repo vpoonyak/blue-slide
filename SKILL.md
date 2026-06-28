@@ -10,11 +10,23 @@ Create concise presentations in which every slide has one unmistakable message. 
 ## Load the references
 
 - Read [references/method.md](references/method.md) for every task.
+- Read [references/intake.md](references/intake.md) before planning or authoring a presentation.
+- Read [references/narrative.md](references/narrative.md) for every task that needs a persuasive story, talk, pitch, recommendation, or call to action.
 - Read [references/infographics.md](references/infographics.md) when the task includes data, charts, diagrams, comparisons, timelines, maps, frameworks, or infographics.
 - Read [references/resource-directory.md](references/resource-directory.md) only when external colors, icons, or templates are needed.
 - Use [assets/palette.json](assets/palette.json) as the canonical BlueSlide palette.
 
 ## Follow the workflow
+
+### 0. Complete the intake
+
+- Inspect every supplied file, note, source, and reference before asking questions.
+- Ask only questions whose answers are not already available.
+- Establish at least the audience, desired action, delivery context, duration or slide count, content sources, output format, language, deadline, and constraints before authoring.
+- Use full **Grill Me mode** for ambiguous, high-stakes, investor, executive, sales, conference, defense, or public-facing presentations.
+- Ask questions in short rounds rather than one overwhelming list.
+- Summarize the answers as a presentation brief and surface assumptions, conflicts, and missing evidence.
+- Do not begin slide design until the minimum brief is complete or the user explicitly asks to proceed with stated assumptions.
 
 ### 1. Define the decision
 
@@ -33,6 +45,7 @@ Create concise presentations in which every slide has one unmistakable message. 
 
 ### 3. Build the narrative
 
+- Use the four-stage BlueSlide sequence: Goal → What Is → Build the Opponent → What Could Be.
 - Treat the audience as the hero and the presenter as the guide.
 - Alternate between “what is” and “what could be” to create tension.
 - Progress toward a clear transformation and finish with action.
