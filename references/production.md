@@ -41,7 +41,7 @@ Default to 16:9 at 13.333 × 7.5 in (33.867 × 19.05 cm) unless the brief specif
 - Message text never goes below 18 pt in a live presentation. If content only fits smaller, it belongs in notes or the appendix.
 - Nothing on a slide goes below 12 pt. A 9 pt label disappears on a projector; if a label is not worth 12 pt, delete it.
 - An assertion title that needs three lines is two messages or too many words; rewrite it rather than shrinking it.
-- Use mid gray `#858487` only for 18 pt and larger de-emphasized labels (3.41:1 on off-white fails smaller text).
+- Mid gray `#858487` is a fill, divider, and chart color only; as text it fails 4.5:1 (3.41:1 on off-white). Use dark gray `#4C4C4C` for de-emphasized labels.
 
 ## Fonts and fallbacks
 
@@ -83,7 +83,16 @@ For a .pptx, run the automated audit before visual QA:
 python scripts/audit_pptx.py deck.pptx
 ```
 
-It reports errors for off-palette colors, pure black, text below 12 pt, fonts other than Calibri, Carlito, or Kanit, and text that fails 4.5:1 against its shape fill or slide background. It warns about paragraphs of more than eight words set below 18 pt and about theme colors that differ from `pptx_theme`. Fix every error before delivery, or tell the user which ones remain and why. The audit reads explicit formatting and the theme only; it cannot see styles inherited from layouts, rendered overlap, or images, so it complements visual QA rather than replacing it.
+It checks every slide and embedded chart. It reports errors for off-palette colors, pure black, text below 12 pt, fonts other than Calibri, Carlito, or Kanit, and text that fails 4.5:1 against its shape fill (including default theme-styled shapes) or slide background. It warns about long paragraphs below 18 pt (Thai is measured in characters), charts that carry direct value labels plus gridlines or a legend, and theme colors or fonts that differ from `pptx_theme`.
+
+Fix every error before delivery, or tell the user which ones remain and why. The audit cannot see:
+
+- font sizes inherited from layout or master placeholders (it prints how many text runs it skipped);
+- colors adjusted by tint, shade, or luminance modifiers;
+- text over pictures or gradients, and colors inside images or icons;
+- rendered overlap, clipping, or wrapping.
+
+Check those in the rendered slides.
 
 ## Render for visual QA
 

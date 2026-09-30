@@ -62,7 +62,7 @@ Audit a built PowerPoint file for off-palette colors, undersized text, disallowe
 python scripts/audit_pptx.py deck.pptx
 ```
 
-Both scripts use only the Python standard library.
+Both scripts need Python 3.8 or later and use only the standard library; installing the skill does not require them, but agents run them during QA.
 
 ## Install
 
@@ -145,6 +145,7 @@ Use $blue-slide to redesign these charts and remove visual noise.
 
 ```text
 blue-slide/
+├── .gitignore
 ├── AGENTS.md
 ├── CHANGELOG.md
 ├── LICENSE

@@ -12,9 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `CHANGELOG.md` to track notable changes across versions.
 - Multi-agent installation guidance in `README.md` for Claude Code, Google
   Antigravity, and Codex, alongside the cross-agent `npx skills` CLI.
-- Canonical Gold Accent `#FFB300`, taken from the swatch page of the
-  BlueSlide PowerPoint template, and a derived text-safe amber `#8A5A00` in
-  `assets/palette.json`, plus explicit color roles (`text_on_light`,
+- Canonical Gold Accent `#FFB300` from the BlueSlide house palette, and a
+  derived text-safe amber `#8A5A00` in `assets/palette.json`, plus explicit color roles (`text_on_light`,
   `text_on_panel`, `text_on_dark`, `fill_only_on_light`) and measured
   contrast ratios.
 - `scripts/check_contrast.py` to verify WCAG contrast for custom color pairs
@@ -27,9 +26,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Task-scope table in `SKILL.md` so slide-level edits and chart fixes compress
   the workflow instead of producing a full brief and slide map, with an
   explicit approval-gate column.
-- `scripts/audit_pptx.py`: a standard-library .pptx audit for off-palette
-  colors, pure black, text below 12 pt, undersized message text, disallowed
-  fonts, failing text contrast, and theme colors that differ from the palette.
+- `scripts/audit_pptx.py`: a standard-library .pptx audit of slides and
+  embedded charts for off-palette colors, pure black, text below 12 pt,
+  undersized message text (Thai-aware), disallowed fonts, failing text
+  contrast on explicit and theme-styled fills, cluttered labeled charts, and
+  theme colors that differ from the palette.
+- `.gitignore` for Python bytecode caches.
 - `pptx_theme` in `assets/palette.json`, mapping BlueSlide colors onto
   PowerPoint and Google Slides theme slots so tool defaults such as Office blue
   `#4F81BD` never appear.
@@ -52,6 +54,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
   for section labels, citations, logos, and slide numbers.
 - Only one gold accent is allowed, pure black is banned for icons as well as
   text, and low-contrast chart marks are allowed only when directly labeled.
+- Mid gray `#858487` is a fill, divider, and chart color only, not text.
+
+### Removed
+
+- `roles.preferred_complementary_accent_hue` and
+  `roles.preferred_complementary_accent_hex` from `assets/palette.json`,
+  superseded by `roles.accent` and `colors.gold_accent`.
 
 ## [0.1.0] - 2026-06-28
 

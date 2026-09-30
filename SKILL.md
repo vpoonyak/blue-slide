@@ -105,17 +105,15 @@ Speaker notes / appendix:
 - Use approximately 70% quiet background, 25% main color, and 5% accent color.
 - Use a low-saturation background.
 - Choose a main color strong enough to work as text or as a background.
-- Use the canonical Gold Accent `#FFB300` sparingly and only for the one focal element per slide: a key number, series, marker, or highlight bar. Use one gold only; never introduce a second, softer yellow.
-- Never set text in the gold accent on a light background (1.79:1 on white). On light slides, place navy text on a gold fill, or use `#8A5A00` when a word itself must carry the accent. On deep-navy slides, gold text is safe.
+- Use the Gold Accent `#FFB300` for only the one focal element per slide, and use one gold only. Never set gold text on a light background; see the color roles in [references/production.md](references/production.md).
 - Use monochromatic, analogous, complementary, or triadic color relationships only when comparison requires them.
 - Never use pure black for text or icons; use charcoal or deep navy.
-- Use no color outside [assets/palette.json](assets/palette.json). Before adding content to a .pptx or Google Slides deck, set its theme colors to the palette's `pptx_theme` so default shapes and charts do not fall back to Office blues.
+- Use no color outside [assets/palette.json](assets/palette.json), and set the deck's theme colors to its `pptx_theme` before adding content.
 - Never apply gradients or shadows to text.
 - Prefer Calibri for English and Kanit for Thai; apply the font fallbacks and Thai line-spacing rules in [references/production.md](references/production.md).
 - Use no more than two typefaces in one presentation.
-- Size type by role (full scale in [references/production.md](references/production.md)): 44–54 pt on title and section slides, 36–40 pt bold for a content slide's assertion title (at most two lines), 24–28 pt for key text, never below 18 pt for message text, and never below 12 pt for anything—including section labels, axis labels, and citations.
-- Set titles, headlines, and body text in deep navy or charcoal; primary blue may be used for large headings. Keep supporting blues for fills and chart series, not light-background text.
-- Hold all text to 4.5:1 contrast or better; projectors wash out marginal contrast.
+- Size type by role using the scale in [references/production.md](references/production.md): assertion titles 36–40 pt and at most two lines, message text at least 18 pt, nothing below 12 pt.
+- Set text in deep navy, charcoal, dark gray, or primary blue, and hold all text to 4.5:1 contrast or better.
 - Never let color be the only carrier of meaning; pair the accent with position, size, or a direct label.
 - Keep body text regular weight. Never bold body paragraphs.
 - Stress a header by increasing size, changing color, adding space, or using a bold weight.
