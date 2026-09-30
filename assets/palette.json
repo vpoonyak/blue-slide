@@ -17,18 +17,98 @@
     "primary_blue": "#2B6FBB",
     "medium_blue": "#429FD2",
     "light_blue": "#70B5DE",
-    "bright_blue": "#409EE0"
+    "bright_blue": "#409EE0",
+    "gold_accent": "#FFB300",
+    "accent_amber_text": "#8A5A00"
   },
   "roles": {
-    "background": ["#FFFFFF", "#F5F5F5", "#D1D5D8", "#CBCDCF"],
-    "main": ["#071560", "#2B6FBB", "#272729", "#4C4C4C"],
-    "supporting_blue": ["#70B5DE", "#429FD2", "#409EE0"],
-    "preferred_complementary_accent_hue": "yellow",
-    "preferred_complementary_accent_hex": null
+    "background": [
+      "#FFFFFF",
+      "#F5F5F5"
+    ],
+    "panel": [
+      "#D1D5D8",
+      "#CBCDCF"
+    ],
+    "main": [
+      "#071560",
+      "#2B6FBB",
+      "#272729",
+      "#4C4C4C"
+    ],
+    "supporting_blue": [
+      "#70B5DE",
+      "#429FD2",
+      "#409EE0"
+    ],
+    "accent": "#FFB300",
+    "accent_text_on_light": "#8A5A00",
+    "text_on_light": [
+      "#071560",
+      "#272729",
+      "#4C4C4C",
+      "#2B6FBB"
+    ],
+    "text_on_panel": [
+      "#071560",
+      "#272729",
+      "#4C4C4C"
+    ],
+    "text_on_dark": [
+      "#FFFFFF",
+      "#F5F5F5",
+      "#FFB300",
+      "#70B5DE"
+    ],
+    "fill_only_on_light": [
+      "#70B5DE",
+      "#429FD2",
+      "#409EE0",
+      "#FFB300",
+      "#858487"
+    ]
+  },
+  "contrast_on_white": {
+    "#071560": 16.34,
+    "#272729": 14.91,
+    "#4C4C4C": 8.59,
+    "#8A5A00": 5.93,
+    "#2B6FBB": 5.13,
+    "#858487": 3.72,
+    "#429FD2": 2.95,
+    "#409EE0": 2.92,
+    "#70B5DE": 2.25,
+    "#FFB300": 1.79
+  },
+  "contrast_on_deep_navy": {
+    "#FFFFFF": 16.34,
+    "#FFB300": 9.1,
+    "#70B5DE": 7.28,
+    "#409EE0": 5.59,
+    "#429FD2": 5.54
   },
   "notes": [
-    "Use printed HEX values from the source image rather than colors sampled from the photograph.",
-    "The source image contains no canonical yellow HEX. Derive and verify a suitable yellow when needed.",
-    "Never use pure black for text."
-  ]
+    "Named colors are BlueSlide's house palette as used in its PowerPoint template and reference decks; #858487 is the label gray. accent_amber_text is the only derived value.",
+    "gold_accent (#FFB300) is the single accent, the complementary hue to the blues, at 9.10:1 against deep navy. It fails as text on light backgrounds (1.79:1 on white); on light slides use it as a fill, highlight bar, or marker behind navy text (navy on #FFB300 is 9.10:1), or use accent_amber_text for accent-colored words.",
+    "The cool light grays are panels, dividers, and quiet chart fills, not slide backgrounds; only navy, charcoal, and dark gray text meets 4.5:1 on them.",
+    "pptx_theme maps the palette onto PowerPoint/Google Slides theme slots so default shapes, charts, and links inherit BlueSlide colors instead of Office defaults such as #4F81BD. accent1 is the default series and shape color; accent2 is the gold accent.",
+    "Chart marks below 3:1 against their background (light blues, gold, cool grays on white) are allowed only when each mark carries a direct value label; otherwise outline them in deep navy or use a darker palette color.",
+    "Supporting blues are fills, chart series, and dark-background text only; they fail 4.5:1 as text on white.",
+    "Contrast ratios are WCAG 2.x relative-luminance ratios. House rule: require 4.5:1 for all slide text, because projectors and shared screens wash out contrast; keep non-text elements that carry meaning at 3:1 or better, except directly labeled chart marks. Verify custom colors with scripts/check_contrast.py.",
+    "Never use pure black for text or icons; use charcoal or deep navy."
+  ],
+  "pptx_theme": {
+    "dk1": "#272729",
+    "lt1": "#FFFFFF",
+    "dk2": "#071560",
+    "lt2": "#F5F5F5",
+    "accent1": "#2B6FBB",
+    "accent2": "#FFB300",
+    "accent3": "#429FD2",
+    "accent4": "#70B5DE",
+    "accent5": "#4C4C4C",
+    "accent6": "#D1D5D8",
+    "hlink": "#2B6FBB",
+    "folHlink": "#071560"
+  }
 }
