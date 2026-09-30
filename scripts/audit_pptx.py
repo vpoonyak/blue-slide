@@ -89,6 +89,8 @@ class Deck:
                 # A leading "/" makes the target package-absolute (pptxgenjs writes these)
                 parts = [] if target.startswith("/") else folder.split("/")
                 for piece in target.lstrip("/").split("/"):
+                    if piece in ("", "."):
+                        continue
                     parts = parts[:-1] if piece == ".." else parts + [piece]
                 targets.append("/".join(parts))
         return targets
