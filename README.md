@@ -27,7 +27,7 @@ Then answer the bridge question: **How do we get from here to there?**
 
 ## Output workflow
 
-BlueSlide does not jump from raw requirements directly into slide design:
+BlueSlide does not jump from raw requirements directly into slide design. It sizes the task first — a new deck gets the full sequence, while a single-slide or chart fix compresses the stages without skipping the thinking:
 
 1. **Presentation brief** — audience, goal, context, scope, evidence, format, and constraints.
 2. **Narrative spine** — the transformation the audience should experience.
@@ -39,15 +39,30 @@ BlueSlide does not jump from raw requirements directly into slide design:
 
 - One primary message per slide.
 - Approximately 70% quiet background, 25% main color, and 5% accent color.
-- Blue as the primary visual language; complementary yellow only for selective emphasis.
-- No pure-black body text, text gradients, or text shadows.
-- Default sizes: 44 pt title or section header, 36 pt headline, and 24 pt body text.
+- Blue as the primary visual language; complementary Gold Accent (`#FFB300`) only for the single focal element on a slide, never as text on a light background.
+- Every text color meets 4.5:1 contrast against its background; color is never the only carrier of meaning.
+- No pure-black text or icons, text gradients, or text shadows; one gold accent only.
+- Type sized by role: 44–54 pt title and section slides, 36–40 pt assertion titles (at most two lines), 24–28 pt key text, never below 18 pt for message text and never below 12 pt for anything.
+- Density follows delivery mode: a live-talk slide carries far fewer words than a standalone reading deck.
 - No more than two typefaces; keep body text regular weight.
 - Prefer direct labels, one hue per chart, chronological or value-based sorting, and zero-baseline bar charts.
 - Prefer donut charts to pie charts, and use neither for more than five categories.
 - Delete before shrinking: “Great writing is all about the power of the deleted word.”
 
-The canonical palette is stored in [`assets/palette.json`](assets/palette.json).
+The canonical palette, including which colors may be used as text on which backgrounds, is stored in [`assets/palette.json`](assets/palette.json). Check any custom color pair with:
+
+```bash
+python scripts/check_contrast.py '#071560' '#F5F5F5'
+python scripts/check_contrast.py --palette   # verify every palette text role
+```
+
+Audit a built PowerPoint file for off-palette colors, undersized text, disallowed fonts, failing contrast, and default Office theme colors:
+
+```bash
+python scripts/audit_pptx.py deck.pptx
+```
+
+Both scripts use only the Python standard library.
 
 ## Install
 
@@ -137,12 +152,17 @@ blue-slide/
 ├── SKILL.md
 ├── agents/openai.yaml
 ├── assets/palette.json
-└── references/
-    ├── infographics.md
-    ├── intake.md
-    ├── method.md
-    ├── narrative.md
-    └── resource-directory.md
+├── references/
+│   ├── examples.md
+│   ├── infographics.md
+│   ├── intake.md
+│   ├── method.md
+│   ├── narrative.md
+│   ├── production.md
+│   └── resource-directory.md
+└── scripts/
+    ├── audit_pptx.py
+    └── check_contrast.py
 ```
 
 ## Influences

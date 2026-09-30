@@ -12,6 +12,46 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `CHANGELOG.md` to track notable changes across versions.
 - Multi-agent installation guidance in `README.md` for Claude Code, Google
   Antigravity, and Codex, alongside the cross-agent `npx skills` CLI.
+- Canonical Gold Accent `#FFB300`, taken from the swatch page of the
+  BlueSlide PowerPoint template, and a derived text-safe amber `#8A5A00` in
+  `assets/palette.json`, plus explicit color roles (`text_on_light`,
+  `text_on_panel`, `text_on_dark`, `fill_only_on_light`) and measured
+  contrast ratios.
+- `scripts/check_contrast.py` to verify WCAG contrast for custom color pairs
+  and for every palette text role.
+- `references/production.md`: density budgets by delivery mode, 16:9 grid and
+  margins, Calibri/Kanit fallbacks and Thai line spacing, color-by-role rules,
+  accessibility checks, and a LibreOffice rendering path for visual QA.
+- `references/examples.md`: a worked brief → spine → slide map, a single-slide
+  rewrite, and assertion-title examples.
+- Task-scope table in `SKILL.md` so slide-level edits and chart fixes compress
+  the workflow instead of producing a full brief and slide map, with an
+  explicit approval-gate column.
+- `scripts/audit_pptx.py`: a standard-library .pptx audit for off-palette
+  colors, pure black, text below 12 pt, undersized message text, disallowed
+  fonts, failing text contrast, and theme colors that differ from the palette.
+- `pptx_theme` in `assets/palette.json`, mapping BlueSlide colors onto
+  PowerPoint and Google Slides theme slots so tool defaults such as Office blue
+  `#4F81BD` never appear.
+- Role-based type scale, reusable slide patterns, and a common-defects QA list
+  drawn from reviewing a real BlueSlide deck.
+
+### Changed
+
+- Titles and body text now use deep navy or charcoal; the accent is reserved
+  for one focal element per slide. The previous rule set titles in the accent
+  color, which fails contrast for gold on light backgrounds (1.79:1 on white).
+- Cool light grays (`#D1D5D8`, `#CBCDCF`) are now panel colors rather than
+  slide backgrounds, because primary blue text falls below 4.5:1 on them.
+- Visual QA requires rendered slide images, or an explicit statement of which
+  checks could not be performed.
+- Type sizing is now by role: assertion titles 36–40 pt (at most two lines),
+  title and section slides 44–54 pt, message text at least 18 pt, and nothing
+  below 12 pt, replacing the single 44 / 36 / 24 pt scale.
+- Content margins are 1.0 in left and right, with an outer 0.5 in band reserved
+  for section labels, citations, logos, and slide numbers.
+- Only one gold accent is allowed, pure black is banned for icons as well as
+  text, and low-contrast chart marks are allowed only when directly labeled.
 
 ## [0.1.0] - 2026-06-28
 

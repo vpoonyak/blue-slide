@@ -59,7 +59,9 @@ Use only the questions that serve the slide. Never force all six onto one page.
 - Use one hue within a chart whenever possible; vary tint or shade and reserve a different-hue accent for the key series.
 - Sort chronological data chronologically. Otherwise sort ascending or descending by value according to the message.
 - Prefer direct labels. If a legend is necessary, place it above the chart and arrange items left to right on one line when possible.
-- Remove unnecessary borders, plot backgrounds, and gridlines.
+- Remove unnecessary borders, plot backgrounds, and gridlines. When every bar or point carries a direct value label, remove the value axis too.
+- Keep chart text at 12 pt or larger; if labels do not fit, reduce the number of categories rather than the type size.
+- Light blues, gold, and cool grays fall below 3:1 against white or off-white. Use them for chart marks only when each mark is directly labeled; otherwise use primary blue or deep navy for the marks.
 
 ### Donut and pie
 
