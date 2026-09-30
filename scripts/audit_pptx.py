@@ -6,7 +6,8 @@ Usage:
 
 Reports, per slide and per embedded chart:
   ERROR  off-palette colors, pure black, text below 12 pt, text that fails
-         4.5:1 against its shape fill or slide background, disallowed fonts
+         4.5:1 against its shape fill or slide background, disallowed fonts,
+         and internal links to parts missing from the file (a corrupt deck)
   WARN   long paragraphs set below 18 pt (message text that may be too
          small; Thai is measured in characters), charts that carry direct
          value labels and also gridlines or a legend, and theme colors or
@@ -54,6 +55,8 @@ def q(tag):
 class Deck:
     def __init__(self, path):
         self.zip = zipfile.ZipFile(path)
+        self.parts = set(self.zip.namelist())
+        self.broken = {}
         theme = self.read("ppt/theme/theme1.xml")
         scheme = theme.find(".//a:clrScheme", NS)
         self.theme_colors = {}
@@ -80,7 +83,7 @@ class Deck:
     def related_all(self, part, rel_type):
         folder, file = part.rsplit("/", 1)
         rels = f"{folder}/_rels/{file}.rels"
-        if rels not in self.zip.namelist():
+        if rels not in self.parts:
             return []
         targets = []
         for rel in self.read(rels).iter(f"{REL_NS}Relationship"):
@@ -92,7 +95,11 @@ class Deck:
                     if piece in ("", "."):
                         continue
                     parts = parts[:-1] if piece == ".." else parts + [piece]
-                targets.append("/".join(parts))
+                resolved = "/".join(parts)
+                if resolved in self.parts:
+                    targets.append(resolved)
+                else:
+                    self.broken.setdefault(part, set()).add(resolved)
         return targets
 
     def related(self, part, rel_type):
@@ -256,6 +263,11 @@ def audit(path):
                         ratio = contrast(color, background)
                         if ratio < TEXT_MIN:
                             add(label, "ERROR", f"text {color} on {background} is {ratio:.2f}:1 (needs {TEXT_MIN}:1)", snippet)
+
+    for part, targets in deck.broken.items():
+        where = re.sub(r"^slide(\d+)$", r"slide \1", Path(part).stem)
+        for target in sorted(targets):
+            add(where, "ERROR", f"broken link to {target}; the deck may be corrupt")
 
     for (where, level, rule), samples in findings.items():
         detail = f": {samples[0]!r}" + (f" (+{len(samples) - 1} more)" if len(samples) > 1 else "") if samples else ""
