@@ -62,6 +62,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
   `roles.preferred_complementary_accent_hex` from `assets/palette.json`,
   superseded by `roles.accent` and `colors.gold_accent`.
 
+### Fixed
+
+- `scripts/audit_pptx.py` no longer crashes on decks whose relationship
+  targets are package-absolute (for example `/ppt/charts/chart1.xml`, as
+  written by pptxgenjs) or contain `.` segments.
+
 ## [0.1.0] - 2026-06-28
 
 ### Added

@@ -85,8 +85,12 @@ class Deck:
         targets = []
         for rel in self.read(rels).iter(f"{REL_NS}Relationship"):
             if rel.get("Type").endswith("/" + rel_type) and rel.get("TargetMode") != "External":
-                parts = folder.split("/")
-                for piece in rel.get("Target").split("/"):
+                target = rel.get("Target")
+                # A leading "/" makes the target package-absolute (pptxgenjs writes these)
+                parts = [] if target.startswith("/") else folder.split("/")
+                for piece in target.lstrip("/").split("/"):
+                    if piece in ("", "."):
+                        continue
                     parts = parts[:-1] if piece == ".." else parts + [piece]
                 targets.append("/".join(parts))
         return targets
