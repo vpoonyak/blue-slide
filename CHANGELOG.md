@@ -7,15 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-09-30
+
 ### Added
 
-- `CHANGELOG.md` to track notable changes across versions.
-- Multi-agent installation guidance in `README.md` for Claude Code, Google
-  Antigravity, and Codex, alongside the cross-agent `npx skills` CLI.
 - Canonical Gold Accent `#FFB300` from the BlueSlide house palette, and a
-  derived text-safe amber `#8A5A00` in `assets/palette.json`, plus explicit color roles (`text_on_light`,
-  `text_on_panel`, `text_on_dark`, `fill_only_on_light`) and measured
-  contrast ratios.
+  derived text-safe amber `#8A5A00` in `assets/palette.json`, plus explicit
+  color roles (`text_on_light`, `text_on_panel`, `text_on_dark`,
+  `fill_only_on_light`) and measured contrast ratios.
 - `scripts/check_contrast.py` to verify WCAG contrast for custom color pairs
   and for every palette text role.
 - `references/production.md`: density budgets by delivery mode, 16:9 grid and
@@ -74,6 +73,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Added
 
+- `CHANGELOG.md` to track notable changes across versions.
+- Multi-agent installation guidance in `README.md` for Claude Code, Google
+  Antigravity, and Codex, alongside the cross-agent `npx skills` CLI.
 - Root `SKILL.md` BlueSlide skill: a blue-first, one-message-per-slide
   presentation method with `name` and `description` frontmatter.
 - Required output sequence — presentation brief → narrative spine → slide map
@@ -95,5 +97,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `README.md` documenting the method, narrative framework, output workflow,
   design rules, and installation.
 
-[Unreleased]: https://github.com/vpoonyak/blue-slide/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/vpoonyak/blue-slide/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/vpoonyak/blue-slide/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/vpoonyak/blue-slide/releases/tag/v0.1.0
