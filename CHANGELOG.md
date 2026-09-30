@@ -67,6 +67,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `scripts/audit_pptx.py` no longer crashes on decks whose relationship
   targets are package-absolute (for example `/ppt/charts/chart1.xml`, as
   written by pptxgenjs) or contain `.` segments.
+- `scripts/audit_pptx.py` reports a link to a part missing from the file as
+  an error and keeps auditing, instead of crashing.
 
 ## [0.1.0] - 2026-06-28
 
